@@ -6,6 +6,8 @@ import Auth from './hoc/auth';
 
 import RegisterLogin from './components/Register_Login';
 import Register from './components/Register_Login/register';
+import Shop from './components/Shop';
+
 import UserDashboard from './components/User/';
 
 const Routes = () => {
@@ -13,6 +15,8 @@ const Routes = () => {
     <Layout>
       <Switch>
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
+        <Route path="/shop" exact component={Auth(Shop, null)} />
+
         <Route path="/register" component={Auth(Register, false)} />
         <Route path="/register_login" component={Auth(RegisterLogin, false)} />
         <Route path="/" exact component={Auth(Home, null)} />
