@@ -8,6 +8,10 @@ import CollapseCheckbox from '../utils/collapseCheckbox';
 import CollapseRadio from '../utils/collapseRadio';
 import LoadMoreCards from './loadMoreCards';
 
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faBars from '@fortawesome/fontawesome-free-solid/faBars';
+import faTh from '@fortawesome/fontawesome-free-solid/faTh';
+
 import { frets, price } from '../utils/Form/fixed_categories';
 
 class Shop extends Component {
@@ -86,6 +90,12 @@ class Shop extends Component {
     })
   }
 
+  handleGrid = () => {
+    this.setState({
+      grid: !this.state.grid ? 'grid_bars' : ''
+    })
+  }
+
   render() {
     console.log(this.state.filters);
     const products = this.props.products;
@@ -122,10 +132,22 @@ class Shop extends Component {
                 handleFilters={(filters) => this.handleFilters(filters, 'price')}
               />
             </div>
+
             <div className="right">
               <div className="shop_options">
                 <div className="shop_grids clear">
-                  grid
+                  <div
+                    className={`grid_btn ${this.state.grid ? '' : 'active'}`}
+                    onClick={() => this.handleGrid()}
+                  >
+                    <FontAwesomeIcon icon={faTh} />
+                  </div>
+                  <div
+                    className={`grid_btn ${!this.state.grid ? '' : 'active'}`}
+                    onClick={() => this.handleGrid()}
+                  >
+                    <FontAwesomeIcon icon={faBars} />
+                  </div>
                 </div>
                 <div style={{clear:'both'}}>
                   <LoadMoreCards
