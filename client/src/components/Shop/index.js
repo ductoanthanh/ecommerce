@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 import PageTop from '../utils/page_top';
-import { getBrands, getWoods } from '../../actions/productActions';
+import { getProductsToShop, getBrands, getWoods } from '../../actions/productActions';
 
 import CollapseCheckbox from '../utils/collapseCheckbox';
 import CollapseRadio from '../utils/collapseRadio';
@@ -25,6 +25,12 @@ class Shop extends Component {
   componentDidMount() {
     this.props.dispatch(getBrands());
     this.props.dispatch(getWoods());
+
+    this.props.dispatch(getProductsToShop(
+      this.state.skip,
+      this.state.limit,
+      this.state.filters
+    ))
   }
 
   handlePrice = (value) => {
@@ -47,9 +53,21 @@ class Shop extends Component {
       let priceValues = this.handlePrice(filters);
       newFilters[category] = priceValues;
     }
-
+    this.showFilteredResults(newFilters);
     this.setState({
       filters: newFilters
+    })
+  }
+
+  showFilteredResults = (filters) => {
+    this.props.dispatch(getProductsToShop(
+      0,
+      this.state.limit,
+      filters
+    )).then(()=> {
+      this.setState({
+        skip: 0
+      })
     })
   }
 
