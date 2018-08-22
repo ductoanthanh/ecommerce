@@ -198,6 +198,8 @@ class AddProduct extends Component {
     setTimeout(() => {
       this.setState({
         formSuccess: false
+      }, () => {
+        this.props.dispatch(clearProduct());
       })
     }, 3000)
   }
