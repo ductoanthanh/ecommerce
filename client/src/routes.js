@@ -18,7 +18,7 @@ const Routes = () => {
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
         <Route path="/shop" exact component={Auth(Shop, null)} />
 
-        <Route path="/admin/add_product" exact component={Auth(AddProduct,true)}/>
+        <Route path="/add_product" exact component={Auth(AddProduct,true)}/>
         <Route path="/register" component={Auth(Register, false)} />
         <Route path="/register_login" component={Auth(RegisterLogin, false)} />
         <Route path="/" exact component={Auth(Home, null)} />
