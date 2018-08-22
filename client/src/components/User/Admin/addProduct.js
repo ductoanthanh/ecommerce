@@ -178,7 +178,14 @@ class AddProduct extends Component {
     return (
       <UserLayout>
         <div>
-          add product
+          <h1>Add Product</h1>
+          <form onSubmit={(event) => this.submitForm(event)}>
+            <FormField
+              id={'name'}
+              formData={this.state.formData.name}
+              change={(element) => this.updateForm(element)}
+            />
+          </form>
         </div>
       </UserLayout>
     )

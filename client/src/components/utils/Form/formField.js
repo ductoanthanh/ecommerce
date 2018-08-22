@@ -22,6 +22,10 @@ const FormField = ({ formData, change, id }) => {
       case ('input'):
         formTemplate = (
           <div className="formBlock">
+            { formData.showlabel ?
+              <div className="label_inputs">{formData.config.label}</div>
+            : null
+            }
             <input
               {...formData.config}
               value={formData.value}
