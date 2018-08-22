@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import FormField from '../../utils/Form/formField';
-import { update, generateData, isFormValid, populateOptionFields } from '../../utils/Form/formActions';
+import { update, generateData, isFormValid, populateOptionFields, resetFields } from '../../utils/Form/formActions';
 import UserLayout from '../../../hoc/user';
 import { connect } from 'react-redux';
-import { getBrands, getWoods } from '../../../actions/productActions';
+import { getBrands, getWoods, addProduct, clearProduct } from '../../../actions/productActions';
 
 class AddProduct extends Component {
   state = {
@@ -181,11 +181,46 @@ class AddProduct extends Component {
   }
 
   updateForm = (element) => {
-    const newFormData = update(element,this.state.formData,'products');
+    const newFormData = update(element,this.state.formData, 'products');
     this.setState({
       formError: false,
       formData: newFormData
     })
+  }
+
+  resetFieldHandler = () => {
+    const newFormData = resetFields(this.state.formData);
+
+    this.setState({
+      formData: newFormData,
+      formSuccess: true
+    });
+    setTimeout(() => {
+      this.setState({
+        formSuccess: false
+      })
+    }, 3000)
+  }
+
+  submitForm = (event) => {
+    event.preventDefault();
+
+    let dataToSubmit = generateData(this.state.formData, 'products');
+    let formIsValid =  isFormValid(this.state.formData, 'products');
+
+    if(formIsValid) {
+      this.props.dispatch(addProduct(dataToSubmit)).then(() => {
+        if(this.props.products.addProduct.success) {
+          this.resetFieldHandler();
+        } else {
+          this.setState({formError: true})
+        }
+      })
+    } else {
+      this.setState({
+        formError: true
+      })
+    }
   }
 
   componentDidMount() {
@@ -208,11 +243,6 @@ class AddProduct extends Component {
         <div>
           <h1>Add Product</h1>
           <form onSubmit={(event) => this.submitForm(event)}>
-            <FormField
-              id={'name'}
-              formData={this.state.formData.name}
-              change={(element) => this.updateForm(element)}
-            />
             <FormField
               id={'name'}
               formData={this.state.formData.name}
