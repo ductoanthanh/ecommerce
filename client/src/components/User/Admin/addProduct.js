@@ -269,7 +269,7 @@ class AddProduct extends Component {
           <h1>Add Product</h1>
           <form onSubmit={(event) => this.submitForm(event)}>
             <FileUpload
-              imagesHandler={(images) => this.imagesHandler()}
+              imagesHandler={(images) => this.imagesHandler(images)}
               reset={this.state.formSuccess}
             />
 
