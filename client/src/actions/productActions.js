@@ -86,7 +86,7 @@ export function addProduct(dataToSubmit) {
   }
 }
 
-export const clearProduct() {
+export function clearProduct() {
   return {
     type: CLEAR_PRODUCT,
     payload: ''
