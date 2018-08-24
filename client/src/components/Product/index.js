@@ -11,11 +11,15 @@ import { getProductDetail, clearProductDetail } from '../../actions/productActio
 class ProductPage extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.props.dispatch(getProductDetail(id))
+    this.props.dispatch(getProductDetail(id)).then(response => {
+      if(!this.props.products.prodDetail) {
+        this.props.history.push('/');
+      }
+    })
   }
 
   componentWillUnmount(){
-    this.props.dispatch(clearProductDetail())
+    this.props.dispatch(clearProductDetail());
   }
 
   render() {
