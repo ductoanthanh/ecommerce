@@ -22,8 +22,19 @@ class ProductImg extends Component {
     }
   }
 
-  handleLightBox = () => {
+  handleLightBox = (position) => {
+    if(this.state.lightboxImages.length > 0) {
+      this.setState({
+        lightbox: true,
+        imagePos: position
+      })
+    }
+  }
 
+  handleLightBoxClose = () => {
+    this.setState({
+      lightbox: false
+    })
   }
 
   showThumbs = () => (
@@ -62,6 +73,17 @@ class ProductImg extends Component {
         <div className="main_thumbs">
           { this.showThumbs(detail) }
         </div>
+        {
+          this.state.lightbox ?
+            <ImageLightBox
+              id={detail.id}
+              images={this.state.lightboxImages}
+              open={this.state.open}
+              pos={this.state.imagePos}
+              onclose={() => this.handleLightBoxClose()}
+            />
+          : null
+        }
       </div>
     );
   }
