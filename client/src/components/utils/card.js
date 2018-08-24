@@ -54,7 +54,10 @@ class Card extends Component {
               <MyButton
                 type="bag_link"
                 runAction={() => {
-                  console.log('Added to cart')
+                  props.user.userData.isAuth ?
+                    this.props.dispatch(addToCart(props._id))
+                  :
+                    console.log('please log in')
                 }}
               />
             </div>
