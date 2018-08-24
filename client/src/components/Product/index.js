@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PageTop from '../utils/page_top';
 
 import ProductInfo from './productInfo';
+import ProductImg from './productImg';
 
 import { connect } from 'react-redux';
 
@@ -29,7 +30,11 @@ class ProductPage extends Component {
           this.props.products.prodDetail ?
             <div className="product_detail_wrapper">
               <div className="left">
-                image
+                <div style={{width: '500px'}}>
+                  <ProductImg
+                    detail={this.props.products.prodDetail}
+                  />
+                </div>
               </div>
               <div className="right">
                 <ProductInfo
