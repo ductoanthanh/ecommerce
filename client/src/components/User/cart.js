@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserLayout from '../../hoc/user';
 
 import { connect } from 'react-redux';
+import { getCartItems } from '../../actions/userActions';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faFrown from '@fortawesome/fontawesome-free-solid/faFrown'
@@ -24,8 +25,11 @@ class UserCart extends Component {
         user.userData.cart.forEach(item => {
           cartItems.push(item.id)
         });
+        this.props.dispatch(getCartItems(cartItems, user.userData.cart))
+        .then(() => {
 
-        
+        })
+
       }
     }
   }
