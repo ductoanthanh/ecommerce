@@ -7,6 +7,7 @@ import ProductImg from './productImg';
 import { connect } from 'react-redux';
 
 import { getProductDetail, clearProductDetail } from '../../actions/productActions';
+import { addToCart } from '../../actions/userActions';
 
 class ProductPage extends Component {
   componentDidMount() {
@@ -20,6 +21,10 @@ class ProductPage extends Component {
 
   componentWillUnmount(){
     this.props.dispatch(clearProductDetail());
+  }
+
+  addToCartHandler = (id) => {
+    this.props.dispatch(addToCart(id))
   }
 
   render() {
