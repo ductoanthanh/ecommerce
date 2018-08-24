@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { USER_SERVER } from '../components/utils/misc';
+import { USER_SERVER, PRODUCT_SERVER } from '../components/utils/misc';
 import {
   LOGIN_USER,
   REGISTER_USER,
   AUTH_USER,
   LOGOUT_USER,
-  ADD_TO_CART_USER
+  ADD_TO_CART_USER,
+  GET_CART_ITEMS_USER
 } from './types';
 
 export function registerUser(dataToSubmit) {
@@ -50,6 +51,25 @@ export function addToCart(_id) {
 
   return {
     type: ADD_TO_CART_USER,
+    payload: request
+  }
+}
+
+export function getCartItems(cartItems, userCart) {
+  const request = axios.get(`http://localhost:3000/api/product/articles_by_id?id=${cartItems}&type=array`)
+                .then(response => {
+                  userCart.forEach(item => {
+                    response.data.forEach((data,index) => {
+                      if(item.id === data._id) {
+                        response.data[index].quantity = item.quantity;
+                      }
+                    })
+                  })
+                  return response.data;
+                })
+
+  return {
+    type: GET_CART_ITEMS_USER,
     payload: request
   }
 }
