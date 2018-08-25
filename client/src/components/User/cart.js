@@ -3,12 +3,14 @@ import UserLayout from '../../hoc/user';
 import UserProductBlock from '../utils/User/productBlock';
 
 import { connect } from 'react-redux';
-import { getCartItems } from '../../actions/userActions';
+import { getCartItems, removeCartItem } from '../../actions/userActions';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faFrown from '@fortawesome/fontawesome-free-solid/faFrown'
 import faSmile from '@fortawesome/fontawesome-free-solid/faSmile'
 
+//AedpBcSWWoHVsEBc7htVluZsSwqQ-lyUfLHdDqXF39AB29eJhdS9TgL2xUy1lexw5fpuJe6n8oBja0fn
+import Paypal from '../utils/paypal';
 
 class UserCart extends Component {
   state = {
@@ -51,7 +53,16 @@ class UserCart extends Component {
   }
 
   removeFromCart = (id) => {
-
+    this.props.dispatch(removeCartItem(id))
+    .then(() => {
+      if(this.props.user.cartDetail.length <= 0) {
+        this.setState({
+          showTotal: false
+        })
+      } else {
+        this.calculateTotal(this.props.user.cartDetail)
+      }
+    })
   }
 
   showNoItemMessage = () => (
@@ -62,6 +73,18 @@ class UserCart extends Component {
       </div>
     </div>
   )
+
+  transactionError = () => {
+
+  }
+
+  transactionCanceled = () => {
+
+  }
+
+  transactionSuccess = () => {
+    
+  }
 
   render() {
     return (
@@ -100,7 +123,12 @@ class UserCart extends Component {
           {
             this.state.showTotal ?
               <div className="paypal_button_container">
-                Paypal
+                <Paypal
+                  toPay={this.state.total}
+                  transactionError={(data) => this.transactionError(data)}
+                  transactionCanceled={(data) => this.transactionCanceled(data)}
+                  onSuccess={(data) => this.transactionSuccess(data)}
+                />
               </div>
             : null
           }
