@@ -1,5 +1,6 @@
 import {
-  GET_SITE_DATA
+  GET_SITE_DATA,
+  UPDATE_SITE_DATA
 } from '../actions/types';
 
 export default function(state={}, action) {
@@ -8,6 +9,11 @@ export default function(state={}, action) {
       return {
         ...state,
         siteData: action.payload
+      }
+    case UPDATE_SITE_DATA:
+      return {
+        ...state,
+        siteData: action.payload.siteInfo
       }
     default:
       return state;
