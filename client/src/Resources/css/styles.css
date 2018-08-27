@@ -234,7 +234,7 @@ select {
 ==============================*/
 
 .page_top {
-    border-bottom: 1px solid #999592;   
+    border-bottom: 1px solid #999592;
     padding: 20px 0px;
     text-transform: uppercase;
 }
@@ -344,7 +344,7 @@ footer .business_nfo {
 footer .business_nfo .tag {
     flex-grow: 1;
     position: relative;
-    width: 50%;
+    width: 48%;
     margin-bottom: 30px;
 }
 footer .business_nfo .icon {
@@ -604,12 +604,12 @@ footer .business_nfo .nfo {
 ==============================*/
 
 .product_detail_wrapper {
-    display: flex;   
+    display: flex;
     margin-bottom: 140px;
 }
 
 .product_detail_wrapper .right{
-    flex-grow: 1; 
+    flex-grow: 1;
     min-height: 800px;
 }
 
@@ -765,7 +765,7 @@ footer .business_nfo .nfo {
 }
 
 .user_container .user_left_nav {
-    border-right: 1px solid #f8f8f8; 
+    border-right: 1px solid #f8f8f8;
 }
 
 .user_container .user_left_nav .links a {
