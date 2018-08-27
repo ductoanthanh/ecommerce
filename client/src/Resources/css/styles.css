@@ -467,6 +467,19 @@ footer .business_nfo .nfo {
   .card_list .card_item_wrapper {
     width: 89%;
   }
+
+  .home_promotion .tag.title {
+    font-size: 35px;
+  }
+
+  .home_promotion .tag.low_title {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .home_promotion .home_promotion_img {
+    height: 300px;
+  }
 }
 
 @media(min-width: 576px) {
@@ -475,9 +488,33 @@ footer .business_nfo .nfo {
   }
 }
 
+@media(min-width: 520px) {
+  .home_promotion .tag.title {
+    font-size: 35px;
+  }
+
+  .home_promotion .tag.low_title {
+    font-size: 25px;
+    text-align: center;
+  }
+}
+
 @media(min-width: 768px) {
   .card_list .card_item_wrapper {
     width: 48%;
+  }
+
+  .home_promotion .tag.title {
+    font-size: 70px;
+  }
+
+  .home_promotion .tag.low_title {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .home_promotion .home_promotion_img {
+    height: 400px;
   }
 }
 
