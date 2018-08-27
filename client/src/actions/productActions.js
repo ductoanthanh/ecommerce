@@ -15,7 +15,7 @@ import {
 } from './types';
 
 export function getProductDetail(id) {
-  const request = axios.get(`http://localhost:3000/api/product/articles_by_id?id=${id}&type=single`)
+  const request = axios.get(`${PRODUCT_SERVER}/articles_by_id?id=${id}&type=single`)
             .then(response => {
               return response.data[0]
             });
