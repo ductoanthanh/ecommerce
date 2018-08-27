@@ -9,7 +9,7 @@ const links = [
   },
   {
     name: 'User Information',
-    linkTo: '/user_profile'
+    linkTo: '/user/user_profile'
   },
   {
     name: 'My Cart',

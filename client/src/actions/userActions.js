@@ -50,7 +50,7 @@ export function logoutUser() {
 }
 
 export function addToCart(_id) {
-  const request = axios.post(`http://localhost:3000/api/users/addToCart?productId=${_id}`)
+  const request = axios.post(`${USER_SERVER}/addToCart?productId=${_id}`)
                 .then(response => response.data);
 
   return {
@@ -60,7 +60,7 @@ export function addToCart(_id) {
 }
 
 export function getCartItems(cartItems, userCart) {
-  const request = axios.get(`http://localhost:3000/api/product/articles_by_id?id=${cartItems}&type=array`)
+  const request = axios.get(`${PRODUCT_SERVER}/articles_by_id?id=${cartItems}&type=array`)
                 .then(response => {
                   userCart.forEach(item => {
                     response.data.forEach((data,index) => {
@@ -79,7 +79,7 @@ export function getCartItems(cartItems, userCart) {
 }
 
 export function removeCartItem(id) {
-  const request = axios.get(`http://localhost:3000/api/users/removeFromCart?_id=${id}`)
+  const request = axios.get(`${USER_SERVER}/removeFromCart?_id=${id}`)
                 .then(response => {
                   response.data.cart.forEach(item => {
                     response.data.cartDetail.forEach((data, index) => {
@@ -97,7 +97,7 @@ export function removeCartItem(id) {
 }
 
 export function onSuccessBuy(data) {
-  const request = axios.post(`http://localhost:3000/api/users/successBuy`, data)
+  const request = axios.post(`${USER_SERVER}/successBuy`, data)
                 .then(response => response.data);
 
   return {
@@ -107,7 +107,7 @@ export function onSuccessBuy(data) {
 }
 
 export function updateUserData(dataToSubmit) {
-  const request = axios.post(`http://localhost:3000/api/users/updateProfile`, dataToSubmit)
+  const request = axios.post(`${USER_SERVER}/updateProfile`, dataToSubmit)
                 .then(response => response.data);
 
   return {

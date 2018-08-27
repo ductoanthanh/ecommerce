@@ -23,12 +23,12 @@ const Routes = () => {
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
         <Route path="/user/cart" exact component={Auth(UserCart, true)} />
         <Route path="/shop" exact component={Auth(Shop, null)} />
-        <Route path="/user_profile" exact component={Auth(UpdateProfile,true)}/>
+        <Route path="/user/user_profile" exact component={Auth(UpdateProfile,true)}/>
 
         {/* Admin Route */}
-        <Route path="/add_product" exact component={Auth(AddProduct,true)}/>
-        <Route path="/manage_categories" exact component={Auth(ManageCategories,true)}/>
-        <Route path="/site_info" exact component={Auth(ManageSite,true)}/>
+        <Route path="/admin/add_product" exact component={Auth(AddProduct,true)}/>
+        <Route path="/admin/manage_categories" exact component={Auth(ManageCategories,true)}/>
+        <Route path="/admin/site_info" exact component={Auth(ManageSite,true)}/>
 
         <Route path="/product_detail/:id" component={Auth(ProductPage, null)} />
 
