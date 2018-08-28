@@ -30,22 +30,21 @@ class ProductPage extends Component {
   render() {
     return (
       <div>
-        <PageTop
+        {/* <PageTop
           title="Product Detail"
-        />
+        /> */}
 
-        <div className="container">
         {
           this.props.products.prodDetail ?
-            <div className="product_detail_wrapper">
-              <div className="left">
-                <div style={{width: '500px'}}>
+            <div className="product_detail_wrapper row" style={{ marginTop: '30px' }}>
+              <div className="col-md-5 col-sm-12">
+                <div>
                   <ProductImg
                     detail={this.props.products.prodDetail}
                   />
                 </div>
               </div>
-              <div className="right">
+              <div className="col-md-7 col-sm-12">
                 <ProductInfo
                   addToCart={(id) => this.addToCartHandler(id)}
                   detail={this.props.products.prodDetail}
@@ -54,7 +53,6 @@ class ProductPage extends Component {
             </div>
           :null
         }
-        </div>
       </div>
     )
   }

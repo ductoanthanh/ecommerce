@@ -22,7 +22,7 @@ const HomeSlider = (props) => {
     ]
 
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -36,8 +36,7 @@ const HomeSlider = (props) => {
                 <div key={index}>
                     <div className="featured_image"
                         style={{
-                            background:`url(${item.img})`,
-                            height:`${window.innerHeight}px`
+                            background:`url(${item.img})`
                         }}
                     >
                         <div className="featured_action">
