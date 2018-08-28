@@ -43,9 +43,9 @@ const UserLayout = (props) => {
   )
 
   return (
-    <div className="container">
-      <div className="user_container">
-        <div className="user_left_nav">
+    <div className="col">
+      <div className="user_container row">
+        <div className="user_left_nav col-sm-3">
           <h2>My Account</h2>
           <div className="links">
             { generateLinks(links) }
@@ -61,7 +61,7 @@ const UserLayout = (props) => {
             : null
           }
         </div>
-        <div className="user_right">
+        <div className="user_right col-sm-9">
           {props.children}
         </div>
       </div>
