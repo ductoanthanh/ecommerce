@@ -62,13 +62,11 @@ class ProductImg extends Component {
     const {detail} = this.props;
     return (
       <div className="product_image_container">
-        <div className="main_pic">
-          <div
-            style={{background:`url(${this.renderCardImage(detail.images)}) no-repeat`}}
-            onClick={()=> this.handleLightBox(0)}
-          >
+        <div
+          className="main_pic"
+          style={{background:`url(${this.renderCardImage(detail.images)}) no-repeat`}}
+          onClick={()=> this.handleLightBox(0)}>
 
-          </div>
         </div>
         <div className="main_thumbs">
           { this.showThumbs(detail) }
