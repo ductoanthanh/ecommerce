@@ -5,14 +5,16 @@ body {
     color: #404040;
 }
 
+.row {
+  margin: 0;
+  display: block;
+}
+
 .container {
-    width:1100px;
+    width: 100%;
     margin: 0 auto;
 }
-.page_container {
-    min-height: 75vh;
-    padding-top: 85px;
-}
+
 .main_loader {
     text-align: center;
     margin-top: 100px;
@@ -27,8 +29,9 @@ a {
     color:inherit;
 }
 
-.bck_b_light {
-    background: #999592;
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .bck_b_dark {
@@ -244,10 +247,10 @@ select {
             HEADER
 ==============================*/
 header {
-    position: fixed;
     z-index: 999;
     width: 100%;
     border-bottom: 1px solid white;
+    background: #999592;
 }
 
 header .logo {

@@ -13,7 +13,7 @@ class Header extends Component {
         public: true
       },
       {
-        name: 'Guitars',
+        name: 'Products',
         linkTo: '/shop',
         public: true
       }
@@ -110,7 +110,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="bck_b_light row">
+      <header className="row">
         <div className="container">
           <div className="left">
             <div className="logo">
