@@ -104,7 +104,7 @@ class Shop extends Component {
         <PageTop
           title="Browse Products"
         />
-        <div className="container">
+        <div>
           <div className="shop_wrapper">
             <div className="left">
               <CollapseCheckbox
