@@ -26,10 +26,16 @@
 ## Notes
 - In order to enjoy the best of my project, you have to be logged in as admin to add products, edit site info, as well as buy products, edit account, have user purchase history (like normal users). Therefore, please sign in using following credentials:
 ```sh	
-Email: #thanhductoan1997@gmail.com
+Email: thanhductoan1997@gmail.com
 Password: 12345	
 ```
 or, you can sign up as normal user (however, by default you will not have admin rights)
+
+- To test the purchase feature please use following Paypal information:
+```sh	
+Email: thanhductoan1997-buyer@gmail.com
+Password: 21021997
+```
 
 
 ## Live Demo
