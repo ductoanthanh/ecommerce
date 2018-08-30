@@ -57,7 +57,7 @@ class Card extends Component {
                   props.user.userData.isAuth ?
                     this.props.dispatch(addToCart(props._id))
                   :
-                    console.log('please log in')
+                    alert('Please sign up/log in to add to cart');
                 }}
               />
             </div>
