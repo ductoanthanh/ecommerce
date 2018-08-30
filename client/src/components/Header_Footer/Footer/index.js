@@ -65,13 +65,13 @@ const Footer = ({data}) => {
             <h2>Information</h2>
             <div className="links_nfo">
               <div className="tag">
-                <a href="">Privacy Policy</a>
+                <a href="">Privacy</a>
               </div>
               <div className="tag">
                 <a href="">Blog</a>
               </div>
               <div className="tag">
-                <a href="">Returns Policy</a>
+                <a href="">Return</a>
               </div>
               <div className="tag">
                 <a href="">About Us</a>

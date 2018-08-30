@@ -7,8 +7,8 @@ const HomeSlider = (props) => {
     const slides = [
         {
             img:'https://cdn.shopify.com/s/files/1/1678/5005/files/slide-1-h1_1600x.jpg',
-            lineOne:'Fender',
-            lineTwo:'Custom shop',
+            lineOne:'Limited Edition',
+            lineTwo:'Start Playing Guitar Today',
             linkTitle:'Shop now',
             linkTo:'/shop'
         },
@@ -40,8 +40,8 @@ const HomeSlider = (props) => {
                         }}
                     >
                         <div className="featured_action">
-                            <div className="tag title">{item.lineOne}</div>
-                            <div className="tag low_title">{item.lineTwo}</div>
+                            <h2 className="tag-title">{item.lineOne}</h2>
+                            <h3 className="tag-low-title">{item.lineTwo}</h3>
                             <div>
                                 <MyButton
                                     type="default"
