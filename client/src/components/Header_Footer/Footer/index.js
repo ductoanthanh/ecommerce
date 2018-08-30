@@ -15,7 +15,7 @@ const Footer = ({data}) => {
         </div>
         <div className="wrapper row">
           <div className="col-md-6">
-            <h2>Contact Information</h2>
+            <h2>Vibe With Us</h2>
             <div className="business_nfo">
               <div className="tag">
                 <FontAwesomeIcon
