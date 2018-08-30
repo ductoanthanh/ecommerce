@@ -962,3 +962,44 @@ footer .business_nfo .nfo {
     background-position: center center !important;
     border: 1px solid #eaeaea;
 }
+
+/* ImgShowcase */
+.section-showcase {
+  margin-bottom: 110px;
+}
+
+.images-showcase {
+    list-style: none;
+    width: 100%;
+}
+
+.clearfix {
+  margin: 0;
+  padding: 0;
+}
+
+.images-showcase li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+.showcase-photo {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.showcase-photo img {
+    opacity: 0.8;
+    width: 100%;
+    height: auto;
+    transform: scale(1.15);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.showcase-photo img:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
