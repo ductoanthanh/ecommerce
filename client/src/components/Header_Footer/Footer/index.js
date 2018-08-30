@@ -8,13 +8,15 @@ import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope';
 const Footer = ({data}) => {
   return (
     data.siteData ?
-    <footer className="bck_b_dark row">
-      <div className="container col-md-12">
-        <div className="logo">
-          VIBE
-        </div>
+    <footer className="row">
+      <div className="col-md-12">
+
         <div className="wrapper row">
-          <div className="col-md-6">
+          <div className="col-md-2">
+            <div className="logo">VIBE</div>
+            <p style={{textAlign: 'center'}}>© 2018 Copyright Vibe Inc. All Right Reserved.</p>
+          </div>
+          <div className="col-md-4">
             <h2>Vibe With Us</h2>
             <div className="business_nfo">
               <div className="tag">
@@ -43,7 +45,7 @@ const Footer = ({data}) => {
                   className="icon"
                 />
                 <div className="nfo">
-                  <div>Working Hours</div>
+                  <div>Support Hours</div>
                   <div>{data.siteData[0].hours}</div>
                 </div>
               </div>
@@ -59,11 +61,35 @@ const Footer = ({data}) => {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
-            <h2>Be the first to know</h2>
+          <div className="col-md-3">
+            <h2>Information</h2>
+            <div className="links_nfo">
+              <div className="tag">
+                <a href="">Privacy Policy</a>
+              </div>
+              <div className="tag">
+                <a href="">Blog</a>
+              </div>
+              <div className="tag">
+                <a href="">Returns Policy</a>
+              </div>
+              <div className="tag">
+                <a href="">About Us</a>
+              </div>
+              <div className="tag">
+                <a href="">FAQ</a>
+              </div>
+              <div className="tag">
+                <a href="">Contact Us</a>
+              </div>
+            </div>
+
+          </div>
+          <div className="col-md-3">
+            <h2>Subscribe</h2>
             <div>
               <div>
-                Get all latest information
+                Sign up to get the latest on promotions, new releases and more…
               </div>
             </div>
           </div>

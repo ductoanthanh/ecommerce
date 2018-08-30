@@ -34,10 +34,6 @@ a:hover {
   cursor: pointer;
 }
 
-.bck_b_dark {
-    background: #272723;
-}
-
 .dialog_alert {
     padding: 51px;
     font-size: 30px;
@@ -317,18 +313,16 @@ header .log_out_link {
 /*============================
             FOOTER
 ==============================*/
-
-footer {
-  padding-bottom: 20px;
+footer h2 {
+    font-size: 1.5rem;
+    color: #000;
 }
 
 footer .logo {
     text-align: center;
     font-family: 'Monoton', cursive;
-    color: #ffffff;
     font-size: 40px;
     padding: 11px 0px;
-    border-bottom: 1px solid #4d4d4d;
 }
 
 footer .wrapper {
@@ -336,22 +330,28 @@ footer .wrapper {
     color: #828282;
 }
 
-footer .left,
-footer .right {
-    flex: 1;
-}
-
-footer .business_nfo {
+footer .business_nfo,
+footer .links_nfo {
     display: flex;
     flex-wrap: wrap;
 }
 
-footer .business_nfo .tag {
+footer .links_nfo {
+    margin-bottom: 10px;
+}
+
+footer .business_nfo .tag,
+footer .links_nfo .tag {
     flex-grow: 1;
     position: relative;
     width: 48%;
     margin-bottom: 30px;
 }
+
+footer .links_nfo .tag {
+  margin-bottom: 10px;
+}
+
 footer .business_nfo .icon {
     position: absolute;
     font-size: 26px;
