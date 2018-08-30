@@ -4,7 +4,7 @@ import MyButton from '../utils/button';
 const HomePromotion = (props) => {
 
     const promotion = {
-        img:'/images/featured/featured_home_3.jpg',
+        img:'https://cdn.shopify.com/s/files/1/1678/5005/files/bg-acoutic_1600x1600.jpg?v=1482987733',
         lineOne:'Up to 40% off',
         lineTwo:'In second hand guitars',
         linkTitle:'Shop now',

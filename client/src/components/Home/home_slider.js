@@ -6,14 +6,14 @@ const HomeSlider = (props) => {
 
     const slides = [
         {
-            img:'/images/featured/featured_home.jpg',
+            img:'https://cdn.shopify.com/s/files/1/1678/5005/files/slide-1-h1_1600x.jpg',
             lineOne:'Fender',
             lineTwo:'Custom shop',
             linkTitle:'Shop now',
             linkTo:'/shop'
         },
         {
-            img:'/images/featured/featured_home_2.jpg',
+            img:'https://images.unsplash.com/photo-1505318671783-f03bb223d3f7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a4bb66024ec762de5adb7fc63a1a34fe&auto=format&fit=crop&w=1950&q=80',
             lineOne:'B-Stock',
             lineTwo:'Awesome discounts',
             linkTitle:'View offers',
