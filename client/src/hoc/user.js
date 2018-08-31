@@ -61,7 +61,7 @@ const UserLayout = (props) => {
             : null
           }
         </div>
-        <div className="user_right col-sm-9">
+        <div className="col-sm-9">
           {props.children}
         </div>
       </div>
