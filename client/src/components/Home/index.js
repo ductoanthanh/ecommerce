@@ -3,6 +3,7 @@ import HomeSlider from './home_slider';
 import HomePromotion from './home_promotion';
 import CardBlock from '../utils/cardBlock';
 import ImgShowcase from './img_showcase';
+import Motto from './motto';
 
 import { connect } from 'react-redux';
 import { getProductsBySell, getProductsByArrival } from '../../actions/productActions';
@@ -29,6 +30,7 @@ class Home extends Component {
           title="New Arrivals"
         />
         <ImgShowcase />
+        <Motto />
       </div>
     )
   }
