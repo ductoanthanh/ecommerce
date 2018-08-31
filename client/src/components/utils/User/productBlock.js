@@ -19,28 +19,26 @@ const UserProductBlock = ({ products,removeItem }) => {
                 style={{background:`url(${renderCartImage(product.images)}) no-repeat`}}
             ></div>
           </div>
-          <div className="item">
+          <div className="item" style={{width: '40%'}}>
             <h4>Product name</h4>
             <div>
                 {product.brand.name} {product.name}
             </div>
+            <div className="cart_remove_btn"
+                onClick={()=> removeItem(product._id)}>
+                Remove
+            </div>
           </div>
-          <div className="item">
+          <div className="item" style={{width: '20%'}}>
             <h4>Quantity</h4>
             <div>
                 {product.quantity}
             </div>
           </div>
-          <div className="item">
+          <div className="item" style={{width: '15%'}}>
             <h4>Price</h4>
             <div>
                $ {product.price}
-            </div>
-          </div>
-          <div className="item btn">
-            <div className="cart_remove_btn"
-                onClick={()=> removeItem(product._id)}>
-                Remove
             </div>
           </div>
         </div>

@@ -840,11 +840,6 @@ footer .business_nfo .nfo {
     padding: 10px 0px;
 }
 
-.user_container  .user_right {
-    flex-grow: 1;
-    padding: 0 0 0 29px;
-}
-
 .user_container .user_nfo_panel {
     background: #f8f8f8;
     padding: 20px;
@@ -865,6 +860,10 @@ footer .business_nfo .nfo {
     font-weight: 300;
 }
 
+.user_container .user_nfo_panel .my_link{
+    margin-top: 10px;
+}
+
 
 .user_product_block {
     display: flex;
@@ -872,25 +871,26 @@ footer .business_nfo .nfo {
     background: white;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ebebeb;
     width: 100%;
 }
 
 .user_product_block .item {
     flex-grow: 1;
+    width: 25%;
+}
+
+.user_product_block h4 {
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .user_product_block .item .image{
-    height: 125px;
+    height: 100%;
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     margin-right: 10px;
 }
-.user_product_block .item.btn {
-    width: 0px;
-}
-
 
 .user_product_block .cart_remove_btn {
     cursor: pointer;
@@ -898,7 +898,7 @@ footer .business_nfo .nfo {
     display: inline-block;
     padding: 5px 10px;
     color: #ffffff;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 /*=============================
