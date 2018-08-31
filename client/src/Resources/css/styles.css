@@ -1001,7 +1001,7 @@ footer .form_newsletter #subscribe:hover {
 
 /* ImgShowcase */
 .section-showcase {
-  margin-bottom: 110px;
+  margin-bottom: 50px;
 }
 
 .images-showcase {
@@ -1038,4 +1038,14 @@ footer .form_newsletter #subscribe:hover {
 .showcase-photo img:hover {
     opacity: 1;
     transform: scale(1.03);
+}
+
+/* Motto */
+.section-motto {
+  text-align: center;
+  width: 85%;
+  margin: 0 auto;
+  font-size: 23px;
+  line-height: 44px;
+  font-weight: 300;
 }
