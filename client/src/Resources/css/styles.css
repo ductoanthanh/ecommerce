@@ -369,6 +369,46 @@ footer .business_nfo .nfo {
     padding-left: 40px;
 }
 
+footer .form_newsletter {
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+  height: 60px;
+  border-radius: 30px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+  overflow: hidden;
+  background: #fff;
+}
+
+footer .form_newsletter .form-control {
+  padding: 0 145px 0 30px;
+  border: 0;
+  height: 60px;
+  line-height: 60px;
+  font-size: 14px;
+  color: #999;
+  font-weight: 300;
+  margin-top: 0;
+  background: #fff;
+  background-image: none;
+}
+
+footer .form_newsletter #subscribe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 30px;
+  height: 60px;
+  border-radius: 0 30px 30px 0;
+  margin-top: 0;
+  background: none;
+  border-left: 1px solid #eaeaea;
+}
+
+footer .form_newsletter #subscribe:hover {
+  color: #ffd32c;
+  transition: color 0.3s;
+}
 
 
 /*============================
