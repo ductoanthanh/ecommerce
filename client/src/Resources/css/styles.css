@@ -402,6 +402,7 @@ footer .form_newsletter #subscribe {
   border-radius: 0 30px 30px 0;
   margin-top: 0;
   background: none;
+  border: none;
   border-left: 1px solid #eaeaea;
 }
 
