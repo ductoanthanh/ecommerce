@@ -48,7 +48,10 @@ const ProductInfo = (props) => {
         <MyButton
           type="add_to_cart_link"
           runAction={()=>{
-            props.addToCart(detail._id)
+            props.user.userData.isAuth ?
+              props.addToCart(detail._id)
+            :
+              alert('Please sign up/log in to add to cart');
           }}
         />
       </div>
