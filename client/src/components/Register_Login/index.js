@@ -6,10 +6,10 @@ const RegisterLogin = () => {
   return (
     <div className="page_wrapper">
       <div className="container">
-        <div className="register_login_container">
-          <div className="left">
+        <div className=" row register_login_container">
+          <div className="col-md-6" style={{paddingTop: '10px'}}>
             <h1>New Customers</h1>
-            <p>IAHSFHASIFHAISFIAHSDASDBASUDBASBD</p>
+            <p>Welcome to VIBE. Please register here!</p>
             <MyButton
               type="default"
               title="Create an account"
@@ -19,9 +19,9 @@ const RegisterLogin = () => {
               }}
             />
           </div>
-          <div className="right">
-            <h2>Register Customers</h2>
-            <p>If you have account please log in</p>
+          <div className="col-md-6">
+            <h2>Log In</h2>
+            <p>Welcome back! Sign in with your account</p>
             <Login />
           </div>
         </div>

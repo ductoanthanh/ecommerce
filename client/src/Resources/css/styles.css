@@ -863,6 +863,11 @@ footer .form_newsletter #subscribe:hover {
     width: 90%;
 }
 
+.dial_alert {
+    text-align: center;
+    padding: 5% 10%;
+}
+
 /*=============================
          USER
 ===============================*/
