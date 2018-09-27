@@ -38,30 +38,7 @@ const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
 
 // Email
-var smtpTransport = mailer.createTransport({
-  service: "Gmail",
-  auth: {
-      user: "intelprotectors@gmail.com",
-      pass: "QwertyuioP"
-  }
-});
-
-const mail = {
-  from: "Vibe <intelprotectors@gmail.com",
-  to: "baogiang1996@gmail.com",
-  subject: "Send test email",
-  text: "Testing mail",
-  html: "<b>Hello. It works</b>"
-}
-
-smtpTransport.sendMail(mail,function(err, response) {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log("Email sent")
-  }
-  smtpTransport.close();
-})
+const { sendEmail } = require('./mail/index');
 
 
 //=================================
@@ -236,6 +213,7 @@ app.post('/api/users/register',(req,res)=>{
 
     user.save((err,doc)=>{
         if(err) return res.json({success:false,err});
+        sendEmail(doc.email,doc.name,null,"welcome");
         res.status(200).json({
             success: true
         })
