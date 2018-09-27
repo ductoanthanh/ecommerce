@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
+const mailer = require('nodemailer');
+
 
 const app = express();
 const mongoose = require('mongoose');
@@ -34,6 +36,9 @@ const { Site } = require('./models/site');
 // Middlewares
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
+
+// Email
+const { sendEmail } = require('./mail/index');
 
 
 //=================================
@@ -208,6 +213,7 @@ app.post('/api/users/register',(req,res)=>{
 
     user.save((err,doc)=>{
         if(err) return res.json({success:false,err});
+        sendEmail(doc.email,doc.name,null,"welcome");
         res.status(200).json({
             success: true
         })
