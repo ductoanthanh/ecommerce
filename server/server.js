@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
+const mailer = require('nodemailer');
+
 
 const app = express();
 const mongoose = require('mongoose');
@@ -34,6 +36,32 @@ const { Site } = require('./models/site');
 // Middlewares
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
+
+// Email
+var smtpTransport = mailer.createTransport({
+  service: "Gmail",
+  auth: {
+      user: "intelprotectors@gmail.com",
+      pass: "QwertyuioP"
+  }
+});
+
+const mail = {
+  from: "Vibe <intelprotectors@gmail.com",
+  to: "baogiang1996@gmail.com",
+  subject: "Send test email",
+  text: "Testing mail",
+  html: "<b>Hello. It works</b>"
+}
+
+smtpTransport.sendMail(mail,function(err, response) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log("Email sent")
+  }
+  smtpTransport.close();
+})
 
 
 //=================================
