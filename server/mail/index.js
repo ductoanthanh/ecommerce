@@ -10,7 +10,7 @@ const getEmailData = (to, name, token, type) => {
             data = {
                 from: "Vibe <intelprotectors@gmail.com",
                 to,
-                subject: "Welcome to VIBE",
+                subject: `Welcome to VIBE ${name}`,
                 html: welcome()
             }
         break;
