@@ -22,6 +22,7 @@
 ✔️ Restful API using NodeJS <br/>
 ✔️ Password hashing with bcrypt <br/>
 ✔️ MongoDB as database <br/>
+✔️ Email sender using Nodemailer <br/>
 
 ## Notes
 - In order to enjoy the best of my project, you have to be logged in as admin to add products, edit site info, as well as buy products, edit account, have user purchase history (like normal users). Therefore, please sign in using following credentials:
