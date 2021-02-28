@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-import MyButton from './button';
+import React, { Component } from "react";
+import MyButton from "./button";
 
-import { connect } from 'react-redux';
-import { addToCart } from '../../actions/userActions';
+import { connect } from "react-redux";
+import { addToCart } from "../../actions/userActions";
 
 class Card extends Component {
-
   renderCardImage = (images) => {
-    if(images.length > 0) {
+    if (images.length > 0) {
       return images[0].url;
     } else {
-      return '/images/image_not_availble.png';
+      return "/images/image_not_availble.png";
     }
-  }
+  };
 
   render() {
     const props = this.props;
@@ -21,7 +20,7 @@ class Card extends Component {
         <div
           className="image"
           style={{
-            background:`url(${this.renderCardImage(props.images)}) no-repeat`
+            background: `url(${this.renderCardImage(props.images)}) no-repeat`
           }}
         ></div>
         <div className="action_container">
@@ -31,13 +30,11 @@ class Card extends Component {
             <div className="name">{props.price}</div>
           </div>
 
-          { props.grid ?
-            (
-              <div className="description">
-                <p>{props.description}</p>
-              </div>
-            ) : null
-          }
+          {props.grid ? (
+            <div className="description">
+              <p>{props.description}</p>
+            </div>
+          ) : null}
           <div className="actions">
             <div className="button_wrapp">
               <MyButton
@@ -46,7 +43,7 @@ class Card extends Component {
                 title="View Product"
                 linkTo={`/product_detail/${props._id}`}
                 addStyles={{
-                  margin: '10px 0 0 0'
+                  margin: "10px 0 0 0"
                 }}
               />
             </div>
@@ -54,10 +51,9 @@ class Card extends Component {
               <MyButton
                 type="bag_link"
                 runAction={() => {
-                  props.user.userData.isAuth ?
-                    this.props.dispatch(addToCart(props._id))
-                  :
-                    alert('Please sign up/log in to add to cart');
+                  props.user.userData.isAuth
+                    ? this.props.dispatch(addToCart(props._id))
+                    : alert("Please sign up/log in to add to cart");
                 }}
               />
             </div>
@@ -71,7 +67,7 @@ class Card extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.user
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Card);
