@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import HomeSlider from "./home_slider";
-import HomePromotion from "./home_promotion";
+import HomeSlider from "./slider";
+import HomePromotion from "./promotion";
 import CardBlock from "../utils/cardBlock";
-import ImgShowcase from "./img_showcase";
+import ImgShowcase from "./imgShowcase";
 import Motto from "./motto";
 
 import { connect } from "react-redux";

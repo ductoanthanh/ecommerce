@@ -1,84 +1,90 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import FormField from '../../utils/Form/formField';
-import { update, generateData, isFormValid,resetFields } from '../../utils/Form/formActions';
+import FormField from "../../utils/form/formField";
+import {
+  update,
+  generateData,
+  isFormValid,
+  resetFields
+} from "../../utils/form/formActions";
 
-import { connect } from 'react-redux';
-import { getWoods,addWood } from '../../../actions/productActions';
+import { connect } from "react-redux";
+import { getWoods, addWood } from "../../../actions/productActions";
 
 class ManageWoods extends Component {
   state = {
-    formError:false,
-    formSuccess:false,
-    formData:{
+    formError: false,
+    formSuccess: false,
+    formData: {
       name: {
-        element: 'input',
-        value: '',
-        config:{
-          name: 'name_input',
-          type: 'text',
-          placeholder: 'Enter the wood'
+        element: "input",
+        value: "",
+        config: {
+          name: "name_input",
+          type: "text",
+          placeholder: "Enter the wood"
         },
-        validation:{
+        validation: {
           required: true
         },
         valid: false,
         touched: false,
-        validationMessage:''
-      },
+        validationMessage: ""
+      }
     }
-  }
+  };
 
-  showCategoryItems = () => (
-    this.props.products.woods ?
-      this.props.products.woods.map((item,index)=>(
-        <div className="category_item" key={item._id}>
-          {item.name}
-        </div>
-      ))
-    :null
-  )
+  showCategoryItems = () =>
+    this.props.products.woods
+      ? this.props.products.woods.map((item, index) => (
+          <div className="category_item" key={item._id}>
+            {item.name}
+          </div>
+        ))
+      : null;
 
   updateForm = (element) => {
-    const newFormData = update(element,this.state.formData,'woods');
+    const newFormData = update(element, this.state.formData, "woods");
     this.setState({
       formError: false,
       formData: newFormData
     });
-  }
+  };
 
-  resetFieldsHandler = () =>{
-    const newFormData = resetFields(this.state.formData,'woods');
+  resetFieldsHandler = () => {
+    const newFormData = resetFields(this.state.formData, "woods");
 
     this.setState({
-        formData: newFormData,
-        formSuccess:true
+      formData: newFormData,
+      formSuccess: true
     });
-  }
+  };
 
-  submitForm= (event) =>{
+  submitForm = (event) => {
     event.preventDefault();
 
-    let dataToSubmit = generateData(this.state.formData,'woods');
-    let formIsValid = isFormValid(this.state.formData,'woods')
+    let dataToSubmit = generateData(this.state.formData, "woods");
+    let formIsValid = isFormValid(this.state.formData, "woods");
     let existingWoods = this.props.products.woods;
 
-    if(formIsValid){
-        this.props.dispatch(addWood(dataToSubmit,existingWoods)).then(response => {
+    if (formIsValid) {
+      this.props
+        .dispatch(addWood(dataToSubmit, existingWoods))
+        .then((response) => {
           if (response.payload.success) {
             this.resetFieldsHandler();
           } else {
-            this.setState({formError:true})
+            this.setState({ formError: true });
           }
-        })
+        });
     } else {
-        this.setState({
-            formError: true
-        })
+      this.setState({
+        formError: true
+      });
     }
-  }
+  };
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.dispatch(getWoods());
   }
 
@@ -88,45 +94,34 @@ class ManageWoods extends Component {
         <h1>Woods</h1>
         <div className="admin_two_column">
           <div className="left">
-            <div className="brands_container">
-              {this.showCategoryItems()}
-            </div>
+            <div className="brands_container">{this.showCategoryItems()}</div>
           </div>
           <div className="right">
-
-            <form onSubmit={(event)=> this.submitForm(event)}>
+            <form onSubmit={(event) => this.submitForm(event)}>
               <FormField
-                id={'name'}
+                id={"name"}
                 formData={this.state.formData.name}
                 change={(element) => this.updateForm(element)}
               />
 
-
-              {this.state.formError ?
-                <div className="error_label">
-                  Please check your data
-                </div>
-              : null}
+              {this.state.formError ? (
+                <div className="error_label">Please check your data</div>
+              ) : null}
               <button onClick={(event) => this.submitForm(event)}>
                 Add wood
               </button>
-
             </form>
-
           </div>
-
         </div>
       </div>
-    )
+    );
   }
-
 }
-
 
 const mapStateToProps = (state) => {
-    return {
-        products: state.products
-    }
-}
+  return {
+    products: state.products
+  };
+};
 
 export default connect(mapStateToProps)(ManageWoods);

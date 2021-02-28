@@ -1,5 +1,5 @@
 import React from 'react';
-import CardBlockShop from '../utils/cardBlock_shop';
+import CardBlockShop from '../utils/cardBlockShop';
 
 const LoadMoreCards = (props) => {
   return (

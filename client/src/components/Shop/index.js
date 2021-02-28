@@ -1,22 +1,26 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import PageTop from '../utils/page_top';
-import { getProductsToShop, getBrands, getWoods } from '../../actions/productActions';
+import PageTop from "../utils/pageTop";
+import {
+  getProductsToShop,
+  getBrands,
+  getWoods
+} from "../../actions/productActions";
 
-import CollapseCheckbox from '../utils/collapseCheckbox';
-import CollapseRadio from '../utils/collapseRadio';
-import LoadMoreCards from './loadMoreCards';
+import CollapseCheckbox from "../utils/collapseCheckbox";
+import CollapseRadio from "../utils/collapseRadio";
+import LoadMoreCards from "./loadMoreCards";
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faBars from '@fortawesome/fontawesome-free-solid/faBars';
-import faTh from '@fortawesome/fontawesome-free-solid/faTh';
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import faBars from "@fortawesome/fontawesome-free-solid/faBars";
+import faTh from "@fortawesome/fontawesome-free-solid/faTh";
 
-import { frets, price } from '../utils/Form/fixed_categories';
+import { frets, price } from "../utils/form/fixedCategories";
 
 class Shop extends Component {
   state = {
-    grid: '',
+    grid: "",
     limit: 6,
     skip: 0,
     filters: {
@@ -25,85 +29,83 @@ class Shop extends Component {
       wood: [],
       price: []
     }
-  }
+  };
 
   componentDidMount() {
     this.props.dispatch(getBrands());
     this.props.dispatch(getWoods());
 
-    this.props.dispatch(getProductsToShop(
-      this.state.skip,
-      this.state.limit,
-      this.state.filters
-    ))
+    this.props.dispatch(
+      getProductsToShop(this.state.skip, this.state.limit, this.state.filters)
+    );
   }
 
   handlePrice = (value) => {
     const data = price;
     let array = [];
 
-    for(let key in data) {
-      if(data[key]._id === parseInt(value, 10)) {
-        array = data[key].array
+    for (let key in data) {
+      if (data[key]._id === parseInt(value, 10)) {
+        array = data[key].array;
       }
     }
     return array;
-  }
+  };
 
   handleFilters = (filters, category) => {
-    const newFilters = {...this.state.filters};
+    const newFilters = { ...this.state.filters };
     newFilters[category] = filters;
 
-    if(category === "price") {
+    if (category === "price") {
       let priceValues = this.handlePrice(filters);
       newFilters[category] = priceValues;
     }
     this.showFilteredResults(newFilters);
     this.setState({
       filters: newFilters
-    })
-  }
+    });
+  };
 
   showFilteredResults = (filters) => {
-    this.props.dispatch(getProductsToShop(
-      0,
-      this.state.limit,
-      filters
-    )).then(()=> {
-      this.setState({
-        skip: 0
-      })
-    })
-  }
+    this.props
+      .dispatch(getProductsToShop(0, this.state.limit, filters))
+      .then(() => {
+        this.setState({
+          skip: 0
+        });
+      });
+  };
 
   loadMoreCards = () => {
     let skip = this.state.skip + this.state.limit;
-    this.props.dispatch(getProductsToShop(
-      skip,
-      this.state.limit,
-      this.state.filters,
-      this.props.products.toShop
-    )).then(() => {
-      this.setState({
-        skip
-      })
-    })
-  }
+    this.props
+      .dispatch(
+        getProductsToShop(
+          skip,
+          this.state.limit,
+          this.state.filters,
+          this.props.products.toShop
+        )
+      )
+      .then(() => {
+        this.setState({
+          skip
+        });
+      });
+  };
 
   handleGrid = () => {
     this.setState({
-      grid: !this.state.grid ? 'grid_bars' : ''
-    })
-  }
+      grid: !this.state.grid ? "grid_bars" : ""
+    });
+  };
 
   render() {
     console.log(this.state.filters);
     const products = this.props.products;
     return (
       <div>
-        <PageTop
-          title="Browse Products"
-        />
+        <PageTop title="Browse Products" />
         <div>
           <div className="shop_wrapper">
             <div className="left">
@@ -111,25 +113,31 @@ class Shop extends Component {
                 initState={true}
                 title="Brands"
                 list={products.brands}
-                handleFilters={(filters) => this.handleFilters(filters, 'brand')}
+                handleFilters={(filters) =>
+                  this.handleFilters(filters, "brand")
+                }
               />
               <CollapseCheckbox
                 initState={false}
                 title="Frets"
                 list={frets}
-                handleFilters={(filters) => this.handleFilters(filters, 'frets')}
+                handleFilters={(filters) =>
+                  this.handleFilters(filters, "frets")
+                }
               />
               <CollapseCheckbox
                 initState={true}
                 title="Wood"
                 list={products.woods}
-                handleFilters={(filters) => this.handleFilters(filters, 'wood')}
+                handleFilters={(filters) => this.handleFilters(filters, "wood")}
               />
               <CollapseRadio
                 initState={true}
                 title="Price"
                 list={price}
-                handleFilters={(filters) => this.handleFilters(filters, 'price')}
+                handleFilters={(filters) =>
+                  this.handleFilters(filters, "price")
+                }
               />
             </div>
 
@@ -137,19 +145,19 @@ class Shop extends Component {
               <div className="shop_options">
                 <div className="shop_grids clear">
                   <div
-                    className={`grid_btn ${this.state.grid ? '' : 'active'}`}
+                    className={`grid_btn ${this.state.grid ? "" : "active"}`}
                     onClick={() => this.handleGrid()}
                   >
                     <FontAwesomeIcon icon={faTh} />
                   </div>
                   <div
-                    className={`grid_btn ${!this.state.grid ? '' : 'active'}`}
+                    className={`grid_btn ${!this.state.grid ? "" : "active"}`}
                     onClick={() => this.handleGrid()}
                   >
                     <FontAwesomeIcon icon={faBars} />
                   </div>
                 </div>
-                <div style={{clear:'both'}}>
+                <div style={{ clear: "both" }}>
                   <LoadMoreCards
                     grid={this.state.grid}
                     limit={this.state.limit}
@@ -163,14 +171,14 @@ class Shop extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     products: state.products
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Shop);

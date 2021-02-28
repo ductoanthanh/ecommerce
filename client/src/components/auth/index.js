@@ -1,13 +1,13 @@
-import React from 'react';
-import MyButton from '../utils/button';
-import Login from './login';
+import React from "react";
+import MyButton from "../utils/button";
+import Login from "./login";
 
 const RegisterLogin = () => {
   return (
     <div className="page_wrapper">
       <div className="container">
         <div className=" row register_login_container">
-          <div className="col-md-6" style={{paddingTop: '10px'}}>
+          <div className="col-md-6" style={{ paddingTop: "10px" }}>
             <h1>New Customers</h1>
             <p>Welcome to VIBE. Please register here!</p>
             <MyButton
@@ -15,7 +15,7 @@ const RegisterLogin = () => {
               title="Create an account"
               linkTo="/register"
               addStyles={{
-                margin: '10px 0 0 0'
+                margin: "10px 0 0 0"
               }}
             />
           </div>
@@ -27,7 +27,7 @@ const RegisterLogin = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default RegisterLogin;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "../components/Header_Footer/Header";
-import Footer from "../components/Header_Footer/Footer";
+import Header from "../components/common/header";
+import Footer from "../components/common/footer";
 import { connect } from "react-redux";
 import { getSiteData } from "../actions/siteActions";
 
